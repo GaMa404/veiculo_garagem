@@ -5,22 +5,22 @@ USE db_garagem;
 CREATE TABLE marca 
 (
     id INT AUTO_INCREMENT,
-    descricao VARCHAR(100),
-    fabricante VARCHAR(100),
+    descricao VARCHAR(100) NOT NULL,
+    fabricante VARCHAR(100) NOT NULL,
     PRIMARY KEY (id)
 );
 
 CREATE TABLE tipo 
 (
     id INT AUTO_INCREMENT,
-    descricao VARCHAR(100),
+    descricao VARCHAR(100) NOT NULL,
     PRIMARY KEY (id)
 );
 
 CREATE TABLE combustivel
 (
     id INT AUTO_INCREMENT,
-    descricao VARCHAR(100),
+    descricao VARCHAR(100) NOT NULL,
     PRIMARY KEY (id)
 );
 
@@ -30,11 +30,11 @@ CREATE TABLE veiculo
     id_marca INT,
     id_tipo INT,
     id_combustivel INT,
-    modelo VARCHAR(100),
-    ano INT,
-    cor VARCHAR(150),
-    numero_chassi CHAR(17),
-    quilometragem DOUBLE,
+    modelo VARCHAR(100) NOT NULL,
+    ano INT NOT NULL,
+    cor VARCHAR(150) NOT NULL,
+    numero_chassi CHAR(17) NOT NULL UNIQUE,
+    quilometragem DOUBLE NOT NULL,
     revisao BOOLEAN,
     sinistro BOOLEAN,
     roubo_furto BOOLEAN,
