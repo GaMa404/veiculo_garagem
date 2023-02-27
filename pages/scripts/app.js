@@ -26,8 +26,6 @@ function loadPage(res) {
 		const txtObservacoes = $("#txt-observacoes");
 		const btnCadastrar = $("#btn-cadastrar");
 
-		txtModelo.focus();
-
 		res.marcas.forEach(m => {
 			selectMarca.append(new Option(m.descricao, m.id, false, false));
 		})
@@ -47,8 +45,16 @@ function loadPage(res) {
 			txtFabricante.val(marca.fabricante);
 		});
 
+		// const selects = [selectMarca, selectTipo, selectCombustivel];
+
+		// selects.forEach((select) => {
+		// 	select.children().each((index, element) => {
+		// 		console.log(element.getAttribute("default") != null);
+		// 	});
+		// });
 
 		addVeiculoForm.on("submit", () => {
+
 			let formItems = [];
 
 			for (const item of $(".form-item")) {

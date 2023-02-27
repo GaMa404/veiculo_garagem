@@ -24,7 +24,7 @@ const createWindow = () => {
 		darkTheme: false,
 	});
 
-	win.setMenu(null);
+	//	win.setMenu(null);
 
 	win.loadFile(path.join("./pages", "index.html"));
 
