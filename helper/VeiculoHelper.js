@@ -1,0 +1,91 @@
+const { DatabaseHelper } = require("./DatabaseHelper");
+
+class VeiculoHelper extends DatabaseHelper
+{
+	static async selectVeiculos() {
+		await super.createConnection();
+		
+		let sql = `
+		SELECT v.*,
+			c.*, c.descricao AS combustivel_descricao,
+			m.*, m.descricao AS marca_descricao,
+			t.*, t.descricao AS tipo_descricao
+		FROM Veiculo v
+		JOIN Combustivel c ON (c.id = v.id_combustivel)
+		JOIN Marca m ON (m.id = v.id_marca)
+		JOIN Tipo t ON (t.id = v.id_tipo)
+		ORDER BY c.id
+		`;
+
+		const [rows, fields] = await super.createQuery(sql);
+
+		await super.endConnection();
+
+		return rows;
+	}
+
+	static async insertVeiculo(veiculo) {
+		await super.createConnection();
+
+		let sql = `INSERT INTO Veiculo (
+			id_marca,
+			id_tipo,
+			id_combustivel,
+			modelo,
+			ano,
+			cor,
+			numero_chassi,
+			quilometragem,
+			revisao,
+			sinistro,
+			roubo_furto,
+			aluguel,
+			venda,
+			particular,
+			observacoes
+		) VALUES (
+			?,
+			?,
+			?,
+			?,
+			?,
+			?,
+			?,
+			?,
+			?,
+			?,
+			?,
+			?,
+			?,
+			?,
+			?
+		);`;
+
+
+		await super.createQuery(sql, [
+			veiculo.id_marca,
+			veiculo.id_tipo,
+			veiculo.id_combustivel,
+			veiculo.modelo,
+			veiculo.ano,
+			veiculo.cor,
+			veiculo.numero_chassi,
+			veiculo.quilometragem,
+			veiculo.revisao,
+			veiculo.sinistro,
+			veiculo.roubo_furto,
+			veiculo.aluguel,
+			veiculo.venda,
+			veiculo.particular,
+			veiculo.observacoes
+		]).catch((e) => {
+			console.log("Rejected: " + e);
+		});
+
+		await super.endConnection();
+	}
+}
+
+module.exports = {
+	VeiculoHelper
+}

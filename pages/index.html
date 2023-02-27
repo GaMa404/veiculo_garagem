@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Cadastro de Veículos</title>
+	<link rel="stylesheet" href="./css/styles.css" />
+	<link rel="stylesheet" href="./css/components.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+	<div class="container">
+		<div class="form-container">
+			<form id="add-veiculo-form" onsubmit="return false">
+				<article id="title">
+					<h1>Cadastro de Veículos</h1>
+					<p>Qualidade e teste de Software</p>
+				</article>
+
+				<div class="form-items-list">
+					<div class="grid">
+						<div class="row">
+							<div class="form-item">
+								<label>Código do Veículo</label>
+								<input autocomplete="off" spellcheck="false" id="codigo-veiculo" db-column="id" disabled value="1"/>
+							</div>
+
+							<div class="form-item">
+								<label>Marca</label>
+								<select id="select-marca" db-column="id_marca">
+								</select>
+							</div>
+
+							<div class="form-item">
+								<label>Modelo</label>
+								<input autocomplete="off" spellcheck="false" id="txt-modelo" db-column="modelo" required/>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="form-item">
+								<label>Fabricante</label>
+								<input autocomplete="off" spellcheck="false" id="txt-fabricante" db-column="id_fabricante" disabled/>
+							</div>
+
+							<div class="form-item">
+								<label>Tipo</label>
+
+								<select id="select-tipo" db-column="id_tipo">
+								</select>
+
+							</div>
+
+							<div class="form-item">
+								<label>Ano</label>
+
+								<input autocomplete="off" spellcheck="false" id="txt-ano" db-column="ano" type="number" min="1999"
+									max="2023" required />
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="form-item">
+								<label>Combustível</label>
+
+								<select id="select-combustivel" db-column="id_combustivel">
+								</select>
+							</div>
+
+							<div class="form-item">
+								<label>Cor</label>
+								<input autocomplete="off" spellcheck="false" id="txt-cor" db-column="cor" required />
+							</div>
+
+							<div class="form-item">
+								<label>Número Chassi</label>
+
+								<input autocomplete="off" spellcheck="false" id="txt-numero-chassi" maxlength="16"
+									minlength="16" db-column="numero_chassi" required />
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="form-item">
+								<label>Quilometragem</label>
+
+								<input autocomplete="off" spellcheck="false" id="txt-quilometragem" db-column="quilometragem" type="number"
+									required />
+							</div>
+
+							<div class="form-item">
+								<label>Revisão</label>
+
+								<input type="checkbox" id="chk-revisao" db-column="revisao"/>
+							</div>
+
+							<div class="form-item">
+								<label>Sinistro</label>
+
+								<input type="checkbox" id="chk-sinistro" db-column="sinistro">
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="form-item">
+								<label>Roubo/Furto</label>
+
+								<input type="checkbox" id="chk-roubo-furto" db-column="roubo_furto"/>
+							</div>
+
+							<div class="form-item">
+								<label>Aluguel</label>
+
+								<input type="checkbox" id="chk-aluguel" db-column="aluguel">
+							</div>
+
+							<div class="form-item">
+								<label>Venda</label>
+
+								<input type="checkbox" id="chk-venda" db-column="venda"/>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="form-item">
+								<label>Particular</label>
+
+								<input type="checkbox" id="chk-particular" db-column="particular">
+							</div>
+
+							<div class="form-item">
+								<label>Observações</label>
+
+								<input type="text" id="txt-observacoes" db-column="observacoes"/>
+							</div>
+						</div>
+					</div>
+					<div class="form-item center">
+						<button id="btn-cadastrar" type="submit">Cadastrar Veículo</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<script src="./scripts/app.js"></script>
+</body>
+
+</html>
