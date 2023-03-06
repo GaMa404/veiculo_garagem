@@ -1,4 +1,12 @@
 class TypeUtils {
+
+	/**
+	 * 
+	 * @param {*} type 
+	 * @param {*} obj 
+	 * 
+	 * Método semelhante ao Unboxing do C#.
+	 */
 	static unboxing(type, obj) {
 		const d = new type();
 
