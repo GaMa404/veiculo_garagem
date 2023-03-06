@@ -25,7 +25,9 @@ class DatabaseHelper {
 
 	/**
 	 * @param {string} sql 
-	 * @param {string} values 
+	 * @param {string} values
+	 * 
+	 * Abre uma conexão, executa o comando sql e fecha a conexão, e retorna as linhas e campos.
 	 */
 	static async createQuery(sql, values)
 	{

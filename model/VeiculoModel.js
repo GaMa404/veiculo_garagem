@@ -1,6 +1,7 @@
 const { VeiculoHelper } = require("../helper/VeiculoHelper");
 const { TypeUtils } = require("../utils/utils");
 
+// Base
 class Veiculo {
 	id;
 	id_marca;

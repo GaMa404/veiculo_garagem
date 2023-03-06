@@ -1,6 +1,7 @@
 const { MarcaHelper } = require("../helper/MarcaHelper");
 const { TypeUtils } = require("../utils/utils");
 
+// Base
 class Marca {
 	id;
 	descricao;

@@ -1,4 +1,4 @@
-const { BrowserWindow } = require("electron");
+const { BrowserWindow, ipcMain } = require("electron");
 const { CombustivelModel } = require("./model/CombustivelModel");
 const { MarcaModel } = require("./model/MarcaModel");
 const { TipoModel } = require("./model/TipoModel");
@@ -10,6 +10,10 @@ const path = require("path");
  * Função responsável por renderizar a interface.
  */
 const createWindow = () => {
+
+	/**
+	 * Criando uma nova instância de BrowserWindow, ou seja, a janela da nossa aplicação.
+	 */
 	const win = new BrowserWindow({
 		width: 1024,
 		height: 768,
@@ -24,18 +28,24 @@ const createWindow = () => {
 		darkTheme: false,
 	});
 
-	//	win.setMenu(null);
+	/**
+	 * Renderizando o arquivo index.html na janela.
+	 */
+	win.loadFile(path.join("./pages", "listar.html"));
 
-	win.loadFile(path.join("./pages", "index.html"));
-
-	win.webContents.once('did-finish-load', async () => {
-		win.webContents.send("fromMain", {
-			combustiveis: await CombustivelModel.getCombustiveis(),
-			marcas: await MarcaModel.getMarcas(),
-			tipos: await TipoModel.getTipos(),
-			veiculos: await VeiculoModel.getVeiculos()
-		});
-	});
+	/**
+	 * Quando os componentes DOM estiverem renderizados, envie os dados de veículos.
+	 */
+	ipcMain.on("toMain", async (event, args) => {
+		if (args.command == "getData") {
+			win.webContents.send("fromMain", {
+				combustiveis: await CombustivelModel.getCombustiveis(),
+				marcas: await MarcaModel.getMarcas(),
+				tipos: await TipoModel.getTipos(),
+				veiculos: await VeiculoModel.getVeiculos()
+			});
+		}
+	})
 }
 
 module.exports = {

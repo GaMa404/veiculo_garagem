@@ -1,6 +1,7 @@
 const { TipoHelper } = require("../helper/TipoHelper");
 const { TypeUtils } = require("../utils/utils");
 
+// Base
 class Tipo {
 	id;
 	descricao;
