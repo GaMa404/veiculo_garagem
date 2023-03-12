@@ -12,7 +12,7 @@ class DatabaseHelper {
 			host: "localhost",
 			port: 3307,
 			user: "root",
-			password: "etecjau",
+			password: "Lcs6141$",
 			database: "db_garagem",
 		});
 

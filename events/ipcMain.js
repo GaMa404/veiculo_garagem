@@ -17,6 +17,8 @@ module.exports = [
 				});
 
 				notification.show();
+			} else if (args.command == "getVehicles") {
+				
 			}
 		}
 	}

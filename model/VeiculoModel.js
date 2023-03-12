@@ -3,10 +3,14 @@ const { TypeUtils } = require("../utils/utils");
 
 // Base
 class Veiculo {
-	id;
+	veiculo_id;
 	id_marca;
+	marca_descricao;
 	id_tipo;
+	fabricante;
+	tipo_descricao;
 	id_combustivel;
+	combustivel_descricao;
 	modelo;
 	ano;
 	cor;
@@ -21,7 +25,7 @@ class Veiculo {
 	observacoes;
 
 	constructor(id, id_marca, id_tipo, id_combustivel, modelo, ano, cor, numero_chassi, quilometragem, revisao, sinistro, roubo_furto, aluguel, venda, particular, observacoes) {
-		this.id = id;
+		this.veiculo_id = id;
 		this.id_marca = id_marca;
 		this.id_tipo = id_tipo;
 		this.id_combustivel = id_combustivel;

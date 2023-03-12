@@ -21,7 +21,7 @@
 .form-item input:focus {
 	transition: 0.3s;
 	outline: none;
-	border-left: 5px solid #8334eb;
+	border-left: 5px solid #0ece4e;
 	background-color: #dfdfdf;
 }
 
@@ -42,7 +42,7 @@
 }
 
 .form-item select:focus {
-	border-left: 5px solid #8334eb;
+	border-left: 5px solid #0ece4e;
 	background-color: #dfdfdf;
 }
 
@@ -55,7 +55,7 @@
 .form-item button {
 	width: 200px;
 	height: 50px;
-	background-color: #8334eb;
+	background-color: #0ece4e;
 	box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.2);
 	border: none;
 	border-radius: 5px;
@@ -66,19 +66,19 @@
 }
 
 .form-item button:hover {
-	background-color: #6327b1;
+	background-color: #0caa41;
 	cursor: pointer;
 }
 
 .form-item button:focus {
 	outline: none;
-	background-color: #6327b1;
+	background-color: #0caa41;
 	cursor: pointer;
 }
 
 .form-item input[type="checkbox"] {
 	width: 30px;
-	accent-color: #8334eb;
+	accent-color: #0ece4e;
 	transition: 0.3s;
 }
 

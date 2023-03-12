@@ -44,6 +44,10 @@ const createWindow = () => {
 				tipos: await TipoModel.getTipos(),
 				veiculos: await VeiculoModel.getVeiculos()
 			});
+		} else if (args.command == "getVehicles") {
+			win.webContents.send("fromMain", {
+				veiculos: await VeiculoModel.getVeiculos(),
+			});
 		}
 	})
 }

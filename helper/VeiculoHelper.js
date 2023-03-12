@@ -6,7 +6,7 @@ class VeiculoHelper extends DatabaseHelper
 		await super.createConnection();
 		
 		let sql = `
-		SELECT v.*,
+		SELECT v.*, v.id AS veiculo_id,
 			c.*, c.descricao AS combustivel_descricao,
 			m.*, m.descricao AS marca_descricao,
 			t.*, t.descricao AS tipo_descricao
@@ -14,7 +14,7 @@ class VeiculoHelper extends DatabaseHelper
 		JOIN Combustivel c ON (c.id = v.id_combustivel)
 		JOIN Marca m ON (m.id = v.id_marca)
 		JOIN Tipo t ON (t.id = v.id_tipo)
-		ORDER BY c.id
+		GROUP BY v.id
 		`;
 
 		const [rows, fields] = await super.createQuery(sql);
