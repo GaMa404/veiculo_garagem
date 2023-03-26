@@ -117,3 +117,7 @@ body {
 .pk:hover{
 	background-color: #ddd;
 }
+
+.options {
+	width: 90%;
+}

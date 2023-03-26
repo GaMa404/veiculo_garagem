@@ -70,11 +70,27 @@ class VeiculoModel extends TypeUtils {
 		return veiculos;
 	}
 
+	static async getVeiculoById(id) {
+		const veiculos = [];
+
+		const _veiculos = await VeiculoHelper.selectVeiculoById(id);
+
+		_veiculos.forEach((v) => {
+			veiculos.push(super.unboxing(Veiculo, v));
+		});
+
+		return veiculos[0];
+	}
+
 	/**
 	 * @param {Veiculo} veiculo 
 	 */
 	static async addVeiculo(veiculo) {
 		await VeiculoHelper.insertVeiculo(veiculo);
+	}
+
+	static async updateVeiculo(veiculo) {
+		await VeiculoHelper.updateVeiculo(veiculo);
 	}
 }
 

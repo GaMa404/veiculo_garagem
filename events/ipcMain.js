@@ -17,8 +17,19 @@ module.exports = [
 				});
 
 				notification.show();
-			} else if (args.command == "getVehicles") {
-				
+			}
+			else if (args.command == "update")
+			{
+				const veiculo = args.data;
+
+				await VeiculoModel.updateVeiculo(veiculo);
+
+				const notification = new Notification({
+					title: "Veiculo editado!",
+					body: `Veículo ID "${veiculo.id}" foi editado!`
+				});
+
+				notification.show();
 			}
 		}
 	}

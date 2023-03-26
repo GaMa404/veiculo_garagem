@@ -48,6 +48,10 @@ function loadPage(data) {
 	});
 
 	$(".pk").on("click", (e) => {
-		alert(e.target.innerHTML)
+		location.href = "index.html?id=" + (e.target.innerHTML)
+	});
+
+	$("#btn-new-vehicle").on("click", (e) => {
+		location.href = "index.html";
 	});
 }

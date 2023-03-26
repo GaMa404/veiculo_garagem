@@ -28,6 +28,8 @@ const createWindow = () => {
 		darkTheme: false,
 	});
 
+	//win.setMenu(null);
+
 	/**
 	 * Renderizando o arquivo index.html na janela.
 	 */
@@ -37,17 +39,37 @@ const createWindow = () => {
 	 * Quando os componentes DOM estiverem renderizados, envie os dados de veículos.
 	 */
 	ipcMain.on("toMain", async (event, args) => {
-		if (args.command == "getData") {
+		if (args.command == "getData")
+		{
 			win.webContents.send("fromMain", {
+				command: "newVehicle",
 				combustiveis: await CombustivelModel.getCombustiveis(),
 				marcas: await MarcaModel.getMarcas(),
 				tipos: await TipoModel.getTipos(),
 				veiculos: await VeiculoModel.getVeiculos()
 			});
-		} else if (args.command == "getVehicles") {
+		}
+		else if (args.command == "getVehicles")
+		{
 			win.webContents.send("fromMain", {
 				veiculos: await VeiculoModel.getVeiculos(),
 			});
+		}
+		else if (args.command == "getDataToEdit")
+		{
+			let veiculo = await VeiculoModel.getVeiculoById(args.data);
+
+			let auxiliarData = {
+				combustiveis: await CombustivelModel.getCombustiveis(),
+				marcas: await MarcaModel.getMarcas(),
+				tipos: await TipoModel.getTipos(),
+			};
+
+			win.webContents.send("fromMain", {
+				command: "dataToUpdate",
+				data: veiculo,
+				auxiliarData: auxiliarData
+			})
 		}
 	})
 }
