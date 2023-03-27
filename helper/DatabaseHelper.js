@@ -1,24 +1,25 @@
 const mysql = require("mysql2/promise");
 
 class DatabaseHelper {
-	/**
-	 * @type {mysql.Connection}
-	 */
+
+	/** @type {mysql.Connection} */
 	static conn;
 
+	// Cria a conexão com o banco de dados.
 	static async createConnection() {
 
 		this.conn = await mysql.createConnection({
 			host: "localhost",
 			port: 3307,
 			user: "root",
-			password: "Lcs6141$",
+			password: "etecjau",
 			database: "db_garagem",
 		});
 
 		await this.conn.connect();
 	}
 
+	// Encerra a conexão com o banco de dados.
 	static async endConnection() {
 		await this.conn.end();
 	}

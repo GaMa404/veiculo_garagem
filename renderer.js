@@ -6,15 +6,12 @@ const { VeiculoModel } = require("./model/VeiculoModel");
 
 const path = require("path");
 
-/**
- * Função responsável por renderizar a interface.
- */
+// Função responsável por renderizar a interface.
 const createWindow = () => {
 
-	/**
-	 * Criando uma nova instância de BrowserWindow, ou seja, a janela da nossa aplicação.
-	 */
+	// Criando uma nova instância de BrowserWindow, ou seja, a janela da nossa aplicação.
 	const win = new BrowserWindow({
+		title: "FormVeiculo",
 		width: 1024,
 		height: 768,
 		center: true,
@@ -30,14 +27,11 @@ const createWindow = () => {
 
 	//win.setMenu(null);
 
-	/**
-	 * Renderizando o arquivo index.html na janela.
-	 */
+	// Renderizando o arquivo listar.html na janela.
 	win.loadFile(path.join("./pages", "listar.html"));
 
-	/**
-	 * Quando os componentes DOM estiverem renderizados, envie os dados de veículos.
-	 */
+	
+	// Quando os componentes DOM estiverem renderizados, envie os dados de veículos.
 	ipcMain.on("toMain", async (event, args) => {
 		if (args.command == "getData")
 		{

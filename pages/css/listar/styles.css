@@ -90,13 +90,12 @@ body {
 
 .vehicle {
 	display: flex;
-	height: fit-content;
 	justify-content: space-around;
+	height: 50px;
 	width: 100%;
 	display: flex;
 	background-color: #efefef;
 	font-family: "Manrope", sans-serif;
-	margin: 1px;
 }
 
 .vehicle h3 {

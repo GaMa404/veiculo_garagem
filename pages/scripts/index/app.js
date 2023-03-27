@@ -1,4 +1,9 @@
 $(() => {
+
+	$("#listar-veiculos").on("click", () => {
+		window.location.href = "listar.html";
+	})
+
 	let queryString = location.search;
 	const urlParams = new URLSearchParams(queryString);
 

@@ -52,7 +52,8 @@
 	transition: 0.3s;
 }
 
-.form-item button {
+button {
+	margin: 10px;
 	width: 200px;
 	height: 50px;
 	background-color: #0ece4e;
@@ -65,12 +66,12 @@
 	transition: 0.3s;
 }
 
-.form-item button:hover {
+button:hover {
 	background-color: #0caa41;
 	cursor: pointer;
 }
 
-.form-item button:focus {
+button:focus {
 	outline: none;
 	background-color: #0caa41;
 	cursor: pointer;

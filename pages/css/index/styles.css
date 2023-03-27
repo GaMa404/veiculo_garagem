@@ -84,3 +84,7 @@ body {
 	justify-content: center;
 	align-items: center;
 }
+
+.alignleft {
+	width: 900px;
+}

@@ -11,11 +11,14 @@
 
 <body>
 	<div class="container">
+		<div class="alignleft">
+			<button id="listar-veiculos">Listar Veículos</button>
+		</div>
 		<div class="form-container">
 			<form id="add-veiculo-form" onsubmit="return false">
 				<article id="title">
-					<h1>Cadastro de Veículos</h1>
-					<p>Qualidade e teste de Software</p>
+					<h1>FormVeiculo</h1>
+					<p>Cadastro</p>
 				</article>
 
 				<div class="form-items-list">
@@ -57,7 +60,7 @@
 							<div class="form-item">
 								<label>Ano</label>
 
-								<input autocomplete="off" spellcheck="false" id="txt-ano" db-column="ano" type="number" min="1999"
+								<input autocomplete="off" spellcheck="false" id="txt-ano" db-column="ano" type="number" min="1"
 									max="2023" required />
 							</div>
 						</div>
@@ -79,8 +82,8 @@
 							<div class="form-item">
 								<label>Número Chassi</label>
 
-								<input autocomplete="off" spellcheck="false" id="txt-numero-chassi" maxlength="16"
-									minlength="16" db-column="numero_chassi" required />
+								<input autocomplete="off" spellcheck="false" id="txt-numero-chassi" maxlength="17"
+									minlength="17" db-column="numero_chassi" required />
 							</div>
 						</div>
 
@@ -135,7 +138,7 @@
 							<div class="form-item">
 								<label>Observações</label>
 
-								<input type="text" id="txt-observacoes" db-column="observacoes"/>
+								<input type="text" id="txt-observacoes" db-column="observacoes" maxlength="250"/>
 							</div>
 						</div>
 					</div>
