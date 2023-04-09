@@ -4,6 +4,10 @@ $(() => {
 		window.location.href = "../lista/listar.html";
 	});
 
+	$("#inicial").on("click", () => {
+		window.location.href = "../../inicial/index.html";
+	});
+
 	let queryString = location.search;
 	const urlParams = new URLSearchParams(queryString);
 

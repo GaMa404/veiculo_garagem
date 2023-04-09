@@ -55,4 +55,8 @@ function loadPage(data) {
 	$("#btn-new-vehicle").on("click", (e) => {
 		location.href = "../form/form.html";
 	});
+
+	$("#inicial").on("click", () => {
+		window.location.href = "../../inicial/index.html";
+	});
 }

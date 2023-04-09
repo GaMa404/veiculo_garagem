@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Cadastro de Veículos</title>
+	<link rel="stylesheet" href="./styles.css" />
+	<link rel="stylesheet" href="./components.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+	<div class="container">
+		<div class="form-container">
+				<article id="title">
+					<h1>Sistema de Cadastro de Veículos</h1>
+					<p>Menu Inicial</p>
+				</article>
+
+				<div class="center">
+					<button id="listar-veiculo">Veículos</button>
+					<button id="listar-marcas">Marcas</button>
+					<button id="listar-combustiveis">Combustíveis</button>
+					<button id="listar-tipos">Tipos</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<script>
+		$("#listar-veiculo").on("click", () => {
+			window.location.href = "../veiculo/lista/listar.html"
+		});
+
+		$("#listar-marcas").on("click", () => {
+			window.location.href = "../marca/lista/listar.html"
+		});
+
+		$("#listar-combustiveis").on("click", () => {
+			
+		});
+
+		$("#listar-tipos").on("click", () => {
+			
+		});
+	</script>
+</body>
+
+</html>

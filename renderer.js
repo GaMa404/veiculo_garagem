@@ -28,7 +28,7 @@ const createWindow = () => {
 	//win.setMenu(null);
 
 	// Renderizando o arquivo listar.html na janela.
-	win.loadFile(path.join("./pages/veiculo/form", "form.html"));
+	win.loadFile(path.join("./pages/inicial", "index.html"));
 
 	ipcMain.on("toMain", async (event, args) => {
 		switch (args.command) {

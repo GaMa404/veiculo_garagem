@@ -47,4 +47,8 @@ function loadPage(data) {
 	$("#btn-new-marca").on("click", (e) => {
 		location.href = "../form/form.html";
 	});
+
+	$("#inicial").on("click", () => {
+		window.location.href = "../../inicial/index.html";
+	});
 }
