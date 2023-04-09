@@ -2,18 +2,14 @@ $(() => {
 
 	$("#listar-veiculos").on("click", () => {
 		window.location.href = "listar.html";
-	})
+	});
 
 	let queryString = location.search;
 	const urlParams = new URLSearchParams(queryString);
 
 	let id = urlParams.get("id");
 
-
-	if (id)
-	{
-		$("#codigo-veiculo").val(id);
-	}
+	$("#codigo-veiculo").val(id ?? "");
 
 	let editVehicle = $("#codigo-veiculo").val() != "";
 
@@ -21,23 +17,34 @@ $(() => {
 	{
 		window.api.send("toMain", {
 			command: "getDataToEdit",
+			type: "veiculo",
 			data: $("#codigo-veiculo").val()
 		});
 	}
 	else
 	{
 		window.api.send("toMain", {
-			command: "getData"
+			command: "getData",
+			type: "veiculo"
 		});
 	}
 });
 
 window.api.receive("fromMain", (args) => {
-	if (args.command == "dataToUpdate") {
-		loadPageToUpdate(args.data, args.auxiliarData);
-	} else if (args.command == "newVehicle") {
-		console.log("loadpage!");
-		loadPage(args);
+	switch (args.command)
+	{
+		case "dataToUpdate": {
+			loadPageToUpdate(args.data, args.auxiliarData);
+			break;
+		}
+
+		case "newVehicle": {
+			loadPage(args);
+			break;
+		}
+
+		default:
+			break;
 	}
 });
 
@@ -125,11 +132,14 @@ function loadPageToUpdate(vehicle, auxiliarData) {
 		{
 			window.api.send("toMain", {
 				command: "update",
+				type: "veiculo",
 				data: veiculo
 			});
-		} else {
+		}
+		else {
 			window.api.send("toMain", {
 				command: "insert",
+				type: "veiculo",
 				data: veiculo
 			});
 		}
@@ -197,6 +207,7 @@ function loadPage(res) {
 
 		window.api.send("toMain", {
 			command: "insert",
+			type: "veiculo",
 			data: veiculo
 		});
 

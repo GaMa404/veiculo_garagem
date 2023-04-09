@@ -3,6 +3,7 @@
 $(() => {
 	window.api.send("toMain", {
 		command: "getVehicles",
+		type: "veiculo"
 	});
 });
 

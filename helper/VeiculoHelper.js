@@ -2,7 +2,8 @@ const { DatabaseHelper } = require("./DatabaseHelper");
 
 class VeiculoHelper extends DatabaseHelper
 {
-	static async selectVeiculos() {
+	static async selectVeiculos()
+	{
 		await super.createConnection();
 		
 		let sql = `
@@ -24,7 +25,8 @@ class VeiculoHelper extends DatabaseHelper
 		return rows;
 	}
 
-	static async updateVeiculo(veiculo) {
+	static async updateVeiculo(veiculo)
+	{
 		await super.createConnection();
 		
 		let sql = `
@@ -72,7 +74,8 @@ class VeiculoHelper extends DatabaseHelper
 		return rows;
 	}
 
-	static async selectVeiculoById(id) {
+	static async selectVeiculoById(id)
+	{
 		await super.createConnection();
 		
 		let sql = `
@@ -94,7 +97,8 @@ class VeiculoHelper extends DatabaseHelper
 		return rows;
 	}
 
-	static async insertVeiculo(veiculo) {
+	static async insertVeiculo(veiculo)
+	{
 		await super.createConnection();
 
 		let sql = `INSERT INTO Veiculo (

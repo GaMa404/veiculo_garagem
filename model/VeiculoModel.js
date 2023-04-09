@@ -1,8 +1,8 @@
 const { VeiculoHelper } = require("../helper/VeiculoHelper");
 const { TypeUtils } = require("../utils/utils");
 
-// Base
-class Veiculo {
+class Veiculo
+{
 	veiculo_id;
 	id_marca;
 	marca_descricao;
@@ -24,7 +24,8 @@ class Veiculo {
 	particular;
 	observacoes;
 
-	constructor(id, id_marca, id_tipo, id_combustivel, modelo, ano, cor, numero_chassi, quilometragem, revisao, sinistro, roubo_furto, aluguel, venda, particular, observacoes) {
+	constructor(id, id_marca, id_tipo, id_combustivel, modelo, ano, cor, numero_chassi, quilometragem, revisao, sinistro, roubo_furto, aluguel, venda, particular, observacoes)
+	{
 		this.veiculo_id = id;
 		this.id_marca = id_marca;
 		this.id_tipo = id_tipo;
@@ -45,7 +46,8 @@ class Veiculo {
 }
 
 
-class VeiculoModel extends TypeUtils {
+class VeiculoModel extends TypeUtils
+{
 	/**
 	 * @example
 	 * let veiculos = await VeiculoModel.getVeiculos();
@@ -58,7 +60,8 @@ class VeiculoModel extends TypeUtils {
 	 * 
 	 * @returns {Promise<Veiculo[]>}
 	 */
-	static async getVeiculos() {
+	static async getVeiculos()
+	{
 		const veiculos = [];
 
 		const _veiculos = await VeiculoHelper.selectVeiculos();
@@ -70,7 +73,8 @@ class VeiculoModel extends TypeUtils {
 		return veiculos;
 	}
 
-	static async getVeiculoById(id) {
+	static async getVeiculoById(id)
+	{
 		const veiculos = [];
 
 		const _veiculos = await VeiculoHelper.selectVeiculoById(id);
@@ -85,11 +89,13 @@ class VeiculoModel extends TypeUtils {
 	/**
 	 * @param {Veiculo} veiculo 
 	 */
-	static async addVeiculo(veiculo) {
+	static async addVeiculo(veiculo)
+	{
 		await VeiculoHelper.insertVeiculo(veiculo);
 	}
 
-	static async updateVeiculo(veiculo) {
+	static async updateVeiculo(veiculo)
+	{
 		await VeiculoHelper.updateVeiculo(veiculo);
 	}
 }

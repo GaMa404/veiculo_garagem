@@ -2,10 +2,13 @@ const { DatabaseHelper } = require("./DatabaseHelper");
 
 class TipoHelper extends DatabaseHelper
 {
-	static async selectTipos() {
+	static async selectTipos()
+	{
 		await super.createConnection();
 
-		const [rows, fields] = await super.createQuery(`SELECT t.id, t.* FROM Tipo t`);
+		const [rows, fields] = await super.createQuery(
+			`SELECT t.id, t.* FROM Tipo t`
+		);
 
 		await super.endConnection();
 

@@ -1,12 +1,13 @@
 const { CombustivelHelper } = require("../helper/CombustivelHelper");
 const { TypeUtils } = require("../utils/utils");
 
-// Base
-class Combustivel {
+class Combustivel
+{
 	id;
 	descricao;
 
-	constructor(id, descricao) {
+	constructor(id, descricao)
+	{
 		this.id = id;
 		this.descricao = descricao;
 	};
@@ -25,7 +26,8 @@ class CombustivelModel extends TypeUtils {
 	 * 
 	 * @returns {Promise<Combustivel[]>}
 	 */
-	static async getCombustiveis() {
+	static async getCombustiveis()
+	{
 		const combustiveis = [];
 
 		const _combustiveis = await CombustivelHelper.selectCombustiveis();

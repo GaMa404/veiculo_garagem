@@ -1,3 +1,5 @@
+const { Notification } = require("electron");
+
 class TypeUtils {
 
 	/**
@@ -18,6 +20,18 @@ class TypeUtils {
 	}
 }
 
+class AppUtils
+{
+	static notify(config)
+	{
+		new Notification({
+			title: config.title,
+			body: config.body
+		}).show();
+	}
+}
+
 module.exports = {
-	TypeUtils
+	TypeUtils,
+	AppUtils
 }

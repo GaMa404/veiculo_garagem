@@ -28,42 +28,78 @@ const createWindow = () => {
 	//win.setMenu(null);
 
 	// Renderizando o arquivo listar.html na janela.
-	win.loadFile(path.join("./pages", "listar.html"));
+	win.loadFile(path.join("./pages/marca/form", "form.html"));
 
-	
-	// Quando os componentes DOM estiverem renderizados, envie os dados de veículos.
 	ipcMain.on("toMain", async (event, args) => {
-		if (args.command == "getData")
-		{
-			win.webContents.send("fromMain", {
-				command: "newVehicle",
-				combustiveis: await CombustivelModel.getCombustiveis(),
-				marcas: await MarcaModel.getMarcas(),
-				tipos: await TipoModel.getTipos(),
-				veiculos: await VeiculoModel.getVeiculos()
-			});
-		}
-		else if (args.command == "getVehicles")
-		{
-			win.webContents.send("fromMain", {
-				veiculos: await VeiculoModel.getVeiculos(),
-			});
-		}
-		else if (args.command == "getDataToEdit")
-		{
-			let veiculo = await VeiculoModel.getVeiculoById(args.data);
+		switch (args.command) {
 
-			let auxiliarData = {
-				combustiveis: await CombustivelModel.getCombustiveis(),
-				marcas: await MarcaModel.getMarcas(),
-				tipos: await TipoModel.getTipos(),
-			};
+			case "getData":
+				win.webContents.send("fromMain", {
+					command: "newVehicle",
+					combustiveis: await CombustivelModel.getCombustiveis(),
+					marcas: await MarcaModel.getMarcas(),
+					tipos: await TipoModel.getTipos(),
+					veiculos: await VeiculoModel.getVeiculos()
+				});
 
-			win.webContents.send("fromMain", {
-				command: "dataToUpdate",
-				data: veiculo,
-				auxiliarData: auxiliarData
-			})
+			break;
+
+			case "getVehicles":
+
+				win.webContents.send("fromMain", {
+					veiculos: await VeiculoModel.getVeiculos(),
+				});
+
+			break;
+
+			case "getMarcas":
+
+				win.webContents.send("fromMain", {
+					marcas: await MarcaModel.getMarcas(),
+				});
+
+			break;
+			
+			case "addMarca":
+				win.webContents.send("fromMain", {
+					command: "newMarca"
+				})
+			break;
+
+			case "getDataToEdit":
+				if (args.type == "veiculo") {
+					let veiculo = await VeiculoModel.getVeiculoById(args.data);
+
+					let auxiliarData = {
+						combustiveis: await CombustivelModel.getCombustiveis(),
+						marcas: await MarcaModel.getMarcas(),
+						tipos: await TipoModel.getTipos(),
+					};
+
+					win.webContents.send("fromMain", {
+						command: "dataToUpdate",
+						data: veiculo,
+						auxiliarData: auxiliarData
+					});
+				}
+				else if (args.type == "marca") {
+					console.log("atualizar o id " + args.data);
+					
+					let marca = await MarcaModel.getMarcaById(args.data);
+
+					console.log(marca);
+
+					win.webContents.send("fromMain", {
+						command: "dataToUpdate",
+						data: marca
+					});
+				}
+
+			break;
+
+
+			default:
+				break;
 		}
 	})
 }

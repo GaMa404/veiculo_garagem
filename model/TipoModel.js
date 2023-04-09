@@ -1,17 +1,19 @@
 const { TipoHelper } = require("../helper/TipoHelper");
 const { TypeUtils } = require("../utils/utils");
 
-// Base
-class Tipo {
+class Tipo
+{
 	id;
 	descricao;
-	constructor(id, descricao) {
+	constructor(id, descricao)
+	{
 		this.id = id;
 		this.descricao = descricao;
 	}
 }
 
-class TipoModel extends TypeUtils {
+class TipoModel extends TypeUtils
+{
 	/**
 	 * @example
 	 * let tipos = await TipoModel.getTipos();
@@ -24,7 +26,8 @@ class TipoModel extends TypeUtils {
 	 *
 	 * @returns {Promise<Tipo[]>}
 	 */
-	static async getTipos() {
+	static async getTipos()
+	{
 		const tipos = [];
 
 		const _tipos = await TipoHelper.selectTipos();
