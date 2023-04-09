@@ -2,6 +2,7 @@ const { Notification } = require("electron");
 
 const { Veiculo, VeiculoModel } = require("../model/VeiculoModel");
 const { Marca, MarcaModel } = require("../model/MarcaModel");
+const { Tipo, TipoModel } = require("../model/TipoModel");
 
 const { TypeUtils, AppUtils } = require("../utils/utils")
 
@@ -35,6 +36,17 @@ module.exports = [
 							body: `Marca "${marca.descricao}" foi adicionada!`
 						});
 					}
+					else if (args.type == "tipo")
+					{
+						const tipo = TypeUtils.unboxing(Tipo, args.data);
+
+						await TipoModel.addTipo(tipo.descricao);
+
+						AppUtils.notify({
+							title: "Tipo adicionado!",
+							body: `Tipo "${tipo.descricao}" foi adicionado!`
+						});
+					}
 
 					break;
 				}
@@ -52,12 +64,20 @@ module.exports = [
 					}
 					else if (args.type == "marca")
 					{
-						console.log(args);
 						await MarcaModel.updateMarca(args.data.id, args.data.descricao, args.data.fabricante);
 						
 						AppUtils.notify({
 							title: "Marca editada!",
 							body: `Marca ID "${args.data.id}" foi editada!`
+						});
+					}
+					else if (args.type == "tipo")
+					{
+						await TipoModel.updateTipo(args.data.id, args.data.descricao);
+
+						AppUtils.notify({
+							title: "Tipo editado!",
+							body: `Tipo ID "${args.data.id}" foi editado!`
 						});
 					}
 

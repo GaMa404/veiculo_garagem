@@ -38,6 +38,24 @@ class TipoModel extends TypeUtils
 
 		return tipos;
 	}
+
+	static async addTipo(descricao)
+	{
+		await TipoHelper.insertTipo(descricao);
+	}
+
+	static async getTipoById(id)
+	{
+		const tipo = await TipoHelper.selectTipoById(id);
+
+		
+		return super.unboxing(Tipo, tipo[0]);
+	}
+
+	static async updateTipo(id, descricao)
+	{
+		await TipoHelper.updateTipo(id, descricao);
+	}
 }
 
 module.exports = {

@@ -59,11 +59,25 @@ const createWindow = () => {
 				});
 
 			break;
+
+			case "getTipos":
+
+				win.webContents.send("fromMain", {
+					tipos: await TipoModel.getTipos(),
+				});
+
+			break;
 			
 			case "addMarca":
 				win.webContents.send("fromMain", {
 					command: "newMarca"
 				})
+			break;
+
+			case "addTipo":
+				win.webContents.send("fromMain", {
+					command: "newTipo"
+				});
 			break;
 
 			case "getDataToEdit":
@@ -83,8 +97,6 @@ const createWindow = () => {
 					});
 				}
 				else if (args.type == "marca") {
-					console.log("atualizar o id " + args.data);
-					
 					let marca = await MarcaModel.getMarcaById(args.data);
 
 					console.log(marca);
@@ -92,6 +104,17 @@ const createWindow = () => {
 					win.webContents.send("fromMain", {
 						command: "dataToUpdate",
 						data: marca
+					});
+				}
+				else if (args.type == "tipo") {
+					console.log(args);
+					let tipo = await TipoModel.getTipoById(args.data);
+
+					console.log(tipo);
+
+					win.webContents.send("fromMain", {
+						command: "dataToUpdate",
+						data: tipo
 					});
 				}
 

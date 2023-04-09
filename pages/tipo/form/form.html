@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Cadastro de Marcas</title>
+	<link rel="stylesheet" href="./css/styles.css" />
+	<link rel="stylesheet" href="./css/components.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+	<div class="container">
+		<div class="alignleft">
+			<button id="listar-tipos">Listar Tipos</button>
+			<button id="inicial">Página Inicial</button>
+		</div>
+		<div class="form-container">
+			<form id="add-veiculo-form" onsubmit="return false">
+				<article id="title">
+					<h1>Tipo</h1>
+					<p>Cadastro</p>
+				</article>
+
+				<div class="form-items-list">
+					<div class="grid">
+						<div class="row">
+							<div class="form-item">
+								<label>Código do Tipo</label>
+								<input autocomplete="off" spellcheck="false" id="codigo-tipo" db-column="id" disabled/>
+							</div>
+
+							<div class="form-item">
+								<label>Tipo</label>
+								<input autocomplete="off" spellcheck="false" id="txt-tipo" db-column="descricao" required/>
+							</div>
+						</div>
+					</div>
+					<div class="form-item center">
+						<button id="btn-cadastrar" type="submit">Cadastrar Tipo</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<script src="./js/controls.js"></script>
+	<script src="./js/app.js"></script>
+</body>
+
+</html>
