@@ -47,7 +47,7 @@ module.exports = [
 	
 						AppUtils.notify({
 							title: "Veiculo editado!",
-							body: `Veículo ID "${args.id}" foi editado!`
+							body: `Veículo ID "${args.data.id}" foi editado!`
 						});
 					}
 					else if (args.type == "marca")

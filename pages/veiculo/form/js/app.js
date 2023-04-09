@@ -1,7 +1,7 @@
 $(() => {
 
 	$("#listar-veiculos").on("click", () => {
-		window.location.href = "listar.html";
+		window.location.href = "../lista/listar.html";
 	});
 
 	let queryString = location.search;
@@ -143,7 +143,7 @@ function loadPageToUpdate(vehicle, auxiliarData) {
 				data: veiculo
 			});
 		}
-		window.location.href = "./listar.html";
+		window.location.href = "../lista/listar.html";
 	});
 }
 
@@ -211,6 +211,6 @@ function loadPage(res) {
 			data: veiculo
 		});
 
-		window.location.href = "./listar.html";
+		window.location.href = "../lista/listar.html";
 	});
 }

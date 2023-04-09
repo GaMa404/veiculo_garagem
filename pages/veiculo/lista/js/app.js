@@ -49,10 +49,10 @@ function loadPage(data) {
 	});
 
 	$(".pk").on("click", (e) => {
-		location.href = "index.html?id=" + (e.target.innerHTML)
+		location.href = "../form/form.html?id=" + (e.target.innerHTML)
 	});
 
 	$("#btn-new-vehicle").on("click", (e) => {
-		location.href = "index.html";
+		location.href = "../form/form.html";
 	});
 }
