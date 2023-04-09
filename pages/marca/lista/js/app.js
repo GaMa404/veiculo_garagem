@@ -40,15 +40,15 @@ function loadPage(data) {
 		$(".marcas-list").append(elem);
 	});
 
-	$(".pk").on("click", (e) => {
+	$(".pk").on("click", async (e) => {
 		location.href = "../form/form.html?id=" + (e.target.innerHTML)
 	});
 
-	$("#btn-new-marca").on("click", (e) => {
+	$("#btn-new-marca").on("click", async (e) => {
 		location.href = "../form/form.html";
 	});
 
-	$("#inicial").on("click", () => {
+	$("#inicial").on("click", async () => {
 		window.location.href = "../../inicial/index.html";
 	});
 }
