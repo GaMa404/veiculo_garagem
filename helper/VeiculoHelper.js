@@ -1,11 +1,7 @@
 const { DatabaseHelper } = require("./DatabaseHelper");
 
-class VeiculoHelper extends DatabaseHelper
-{
-	static async selectVeiculos()
-	{
-		await super.createConnection();
-		
+class VeiculoHelper extends DatabaseHelper {
+	static async selectVeiculos() {
 		let sql = `
 		SELECT v.*, v.id AS veiculo_id,
 			c.*, c.descricao AS combustivel_descricao,
@@ -20,15 +16,10 @@ class VeiculoHelper extends DatabaseHelper
 
 		const [rows, fields] = await super.createQuery(sql);
 
-		await super.endConnection();
-
 		return rows;
 	}
 
-	static async updateVeiculo(veiculo)
-	{
-		await super.createConnection();
-		
+	static async updateVeiculo(veiculo) {
 		let sql = `
 		UPDATE Veiculo
 			SET id_marca = ?,
@@ -67,17 +58,12 @@ class VeiculoHelper extends DatabaseHelper
 				veiculo.particular,
 				veiculo.observacoes,
 				veiculo.id
-		]);
-
-		await super.endConnection();
+			]);
 
 		return rows;
 	}
 
-	static async selectVeiculoById(id)
-	{
-		await super.createConnection();
-		
+	static async selectVeiculoById(id) {
 		let sql = `
 		SELECT v.*, v.id AS veiculo_id,
 			c.*, c.descricao AS combustivel_descricao,
@@ -92,15 +78,10 @@ class VeiculoHelper extends DatabaseHelper
 
 		const [rows, fields] = await super.createQuery(sql, [id]);
 
-		await super.endConnection();
-
 		return rows;
 	}
 
-	static async insertVeiculo(veiculo)
-	{
-		await super.createConnection();
-
+	static async insertVeiculo(veiculo) {
 		let sql = `INSERT INTO Veiculo (
 			id_marca,
 			id_tipo,
@@ -135,7 +116,6 @@ class VeiculoHelper extends DatabaseHelper
 			?
 		);`;
 
-
 		await super.createQuery(sql, [
 			veiculo.id_marca,
 			veiculo.id_tipo,
@@ -155,8 +135,15 @@ class VeiculoHelper extends DatabaseHelper
 		]).catch((e) => {
 			console.log("Rejected: " + e);
 		});
+	}
 
-		await super.endConnection();
+	static async deleteVeiculo(id) {
+		const [rows, fields] = await super.createQuery(
+			`DELETE FROM Veiculo WHERE id = ?`,
+			[id]
+		);
+
+		return rows;
 	}
 }
 

@@ -1,6 +1,12 @@
 //import $ from "jquery";
 
 $(() => {
+	$(this).on("keyup", (key) => {
+		if (key.code == "F5") {
+			window.location.reload();
+		}
+	});
+	
 	window.api.send("toMain", {
 		command: "getTipos",
 		type: "tipo"

@@ -1,13 +1,11 @@
 const { CombustivelHelper } = require("../helper/CombustivelHelper");
 const { TypeUtils } = require("../utils/utils");
 
-class Combustivel
-{
+class Combustivel {
 	id;
 	descricao;
 
-	constructor(id, descricao)
-	{
+	constructor(id, descricao) {
 		this.id = id;
 		this.descricao = descricao;
 	};
@@ -26,8 +24,7 @@ class CombustivelModel extends TypeUtils {
 	 * 
 	 * @returns {Promise<Combustivel[]>}
 	 */
-	static async getCombustiveis()
-	{
+	static async getCombustiveis() {
 		const combustiveis = [];
 
 		const _combustiveis = await CombustivelHelper.selectCombustiveis();
@@ -37,6 +34,25 @@ class CombustivelModel extends TypeUtils {
 		});
 
 		return combustiveis;
+	}
+
+	static async addCombustivel(descricao) {
+		await CombustivelHelper.insertCombustivel(descricao);
+	}
+
+	static async getCombustivelById(id) {
+		const combustivel = await CombustivelHelper.selectCombustivelById(id);
+
+
+		return super.unboxing(Combustivel, combustivel[0]);
+	}
+
+	static async updateCombustivel(id, descricao) {
+		await CombustivelHelper.updateCombustivel(id, descricao);
+	}
+
+	static async removeCombustivel(id) {
+		await CombustivelHelper.deleteCombustivel(id);
 	}
 }
 

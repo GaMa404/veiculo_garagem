@@ -22,13 +22,24 @@ class DatabaseHelper
 		await this.conn.end();
 	}
 
-	static async createQuery(sql, values)
+	static async createBaseQuery(sql, values)
 	{
-		this.createConnection();
-
+		await this.createConnection();
+		
 		const [rows, fields] = await this.conn.execute(sql, values);
 
-		this.endConnection();
+		await this.endConnection();
+
+		return [rows, fields];
+	}
+
+	static async createQuery(sql, values)
+	{
+		await this.createConnection();
+
+		const [rows, fields] = await this.createBaseQuery(sql, values);
+
+		await this.endConnection();
 
 		return [rows, fields];
 	}

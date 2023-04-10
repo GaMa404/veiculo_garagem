@@ -49,17 +49,17 @@ body {
 	color: #000;
 }
 
-.tipos-list {
+.combustiveis-list {
 	margin: 20px;
 }
 
-.tipos-list-header {
+.combustiveis-list-header {
 	display: flex;
 	flex-direction: row;
 	font-family: "Manrope", sans-serif;
 }
 
-.tipos-columns {
+.combustiveis-columns {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -70,11 +70,10 @@ body {
 	border-radius: 5px;
 }
 
-.tipos-columns-header
+.combustiveis-columns-header
 {
 	display: flex;
 	height: fit-content;
-	justify-content: space-around;
 	border-radius: 5px;
 	width: 100%;
 	display: flex;
@@ -82,14 +81,14 @@ body {
 	font-family: "Manrope", sans-serif;
 }
 
-.tipos-columns-header h3 {
+.combustiveis-columns-header h3 {
 	margin-left: 5px;
-	width: 180px;
+	width: 50%;
 }
 
-.tipos {
+.combustiveis {
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-between;
 	height: 50px;
 	width: 100%;
 	display: flex;
@@ -97,9 +96,9 @@ body {
 	font-family: "Manrope", sans-serif;
 }
 
-.tipos h3 {
+.combustiveis h3 {
 	overflow: hidden;
-	width: 180px;
+	width: 50%;
 	margin-left: 5px;
 	color: #333;
 }

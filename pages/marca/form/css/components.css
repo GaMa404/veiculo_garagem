@@ -87,3 +87,19 @@ button:focus {
 	font-family: "Manrope", sans-serif;
 	color: #555555;
 }
+
+#delete {
+	background-color: #ce0e38;
+	display: none;
+}
+
+#delete:hover {
+	background-color: #aa0c2e;
+	cursor: pointer;
+}
+
+#delete:focus {
+	outline: none;
+	background-color: #aa0c2e;
+	cursor: pointer;
+}

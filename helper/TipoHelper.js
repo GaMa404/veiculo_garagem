@@ -1,56 +1,44 @@
 const { DatabaseHelper } = require("./DatabaseHelper");
 
-class TipoHelper extends DatabaseHelper
-{
-	static async selectTipos()
-	{
-		await super.createConnection();
-
+class TipoHelper extends DatabaseHelper {
+	static async selectTipos() {
 		const [rows, fields] = await super.createQuery(
 			`SELECT t.id, t.* FROM Tipo t`
 		);
 
-		await super.endConnection();
-
 		return rows;
 	}
 
-	static async selectTipoById(id)
-	{
-		await super.createConnection();
-
+	static async selectTipoById(id) {
 		const [rows, fields] = await super.createQuery(
 			`SELECT * FROM Tipo WHERE id = ?`,
 			[id]
 		);
 
-		await super.endConnection();
-
 		return rows;
 	}
 
-	static async updateTipo(id, descricao)
-	{
-		await super.createConnection();
-
+	static async updateTipo(id, descricao) {
 		const [rows, fields] = await super.createQuery(
 			`UPDATE Tipo SET descricao = ? WHERE id = ?`,
 			[descricao, id]
 		);
-
-		await super.endConnection();
 	}
 
-	static async insertTipo(descricao)
-	{
-		await super.createConnection();
-
+	static async insertTipo(descricao) {
 		const [rows, fields] = await super.createQuery(
 			`INSERT INTO Tipo(descricao) VALUES (?)`,
 			[descricao]
 		);
+	}
 
-		await super.endConnection();
+	static async deleteTipo(id) {
+		const [rows, fields] = await super.createQuery(
+			`DELETE FROM Tipo WHERE id = ?`,
+			[id]
+		);
+
+		return rows;
 	}
 }
 

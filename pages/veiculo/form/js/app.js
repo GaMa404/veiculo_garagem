@@ -1,5 +1,10 @@
 $(() => {
-
+	$(this).on("keyup", (key) => {
+		if (key.code == "F5") {
+			window.location.reload();
+		}
+	});
+	
 	$("#listar-veiculos").on("click", () => {
 		window.location.href = "../lista/listar.html";
 	});
@@ -23,6 +28,18 @@ $(() => {
 			command: "getDataToEdit",
 			type: "veiculo",
 			data: $("#codigo-veiculo").val()
+		});
+
+		$("#delete").css("display", "inline");
+
+		$("#delete").on("click", () => {
+			window.api.send("toMain", {
+				command: "delete",
+				type: "veiculo",
+				data: id
+			});
+
+			window.location.href = "../lista/listar.html";
 		});
 	}
 	else

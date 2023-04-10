@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>Cadastro de Marcas</title>
+	<title>Cadastro de Combustíveis</title>
 	<link rel="stylesheet" href="./css/styles.css" />
 	<link rel="stylesheet" href="./css/components.css" />
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -12,14 +12,14 @@
 <body>
 	<div class="container">
 		<div class="alignleft">
-			<button id="listar-tipos">Listar Tipos</button>
+			<button id="listar-combustiveis">Listar Combustíveis</button>
 			<button id="inicial">Página Inicial</button>
 			<button id="delete">Remover</button>
 		</div>
 		<div class="form-container">
 			<form id="add-veiculo-form" onsubmit="return false">
 				<article id="title">
-					<h1>Tipo</h1>
+					<h1>Combustível</h1>
 					<p>Cadastro</p>
 				</article>
 
@@ -27,13 +27,13 @@
 					<div class="grid">
 						<div class="row">
 							<div class="form-item">
-								<label>Código do Tipo</label>
-								<input autocomplete="off" spellcheck="false" id="codigo-tipo" db-column="id" disabled/>
+								<label>Código do Combustível</label>
+								<input autocomplete="off" spellcheck="false" id="codigo-combustivel" db-column="id" disabled/>
 							</div>
 
 							<div class="form-item">
-								<label>Tipo</label>
-								<input autocomplete="off" spellcheck="false" id="txt-tipo" db-column="descricao" required/>
+								<label>Combustível</label>
+								<input autocomplete="off" spellcheck="false" id="txt-combustivel" db-column="descricao" required/>
 							</div>
 						</div>
 					</div>

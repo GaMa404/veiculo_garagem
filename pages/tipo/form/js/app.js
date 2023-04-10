@@ -1,4 +1,9 @@
 $(() => {
+	$(this).on("keyup", (key) => {
+		if (key.code == "F5") {
+			window.location.reload();
+		}
+	});
 
 	$("#listar-tipos").on("click", () => {
 	 	window.location.href = "../lista/listar.html";
@@ -31,6 +36,18 @@ $(() => {
 			command: "getDataToEdit",
 			type: "tipo",
 			data: $("#codigo-tipo").val()
+		});
+
+		$("#delete").css("display", "inline");
+
+		$("#delete").on("click", () => {
+			window.api.send("toMain", {
+				command: "delete",
+				type: "tipo",
+				data: updateId
+			});
+
+			window.location.href = "../lista/listar.html";
 		});
 	} else {
 		window.api.send("toMain", {

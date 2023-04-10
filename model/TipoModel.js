@@ -56,6 +56,11 @@ class TipoModel extends TypeUtils
 	{
 		await TipoHelper.updateTipo(id, descricao);
 	}
+
+	static async removeTipo(id)
+	{
+		await TipoHelper.deleteTipo(id);
+	}
 }
 
 module.exports = {

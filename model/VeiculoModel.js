@@ -98,6 +98,10 @@ class VeiculoModel extends TypeUtils
 	{
 		await VeiculoHelper.updateVeiculo(veiculo);
 	}
+
+	static async removeVeiculo(id) {
+		await VeiculoHelper.deleteVeiculo(id);
+	}
 }
 
 module.exports = {

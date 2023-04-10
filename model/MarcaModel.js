@@ -58,6 +58,11 @@ class MarcaModel extends TypeUtils
 	{
 		await MarcaHelper.updateMarca(id, descricao, fabricante);
 	}
+
+	static async removeMarca(id)
+	{
+		await MarcaHelper.deleteMarca(id)
+	}
 }
 
 module.exports = {

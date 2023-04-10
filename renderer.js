@@ -42,7 +42,7 @@ const createWindow = () => {
 					veiculos: await VeiculoModel.getVeiculos()
 				});
 
-			break;
+				break;
 
 			case "getVehicles":
 
@@ -50,7 +50,7 @@ const createWindow = () => {
 					veiculos: await VeiculoModel.getVeiculos(),
 				});
 
-			break;
+				break;
 
 			case "getMarcas":
 
@@ -58,7 +58,7 @@ const createWindow = () => {
 					marcas: await MarcaModel.getMarcas(),
 				});
 
-			break;
+				break;
 
 			case "getTipos":
 
@@ -66,19 +66,33 @@ const createWindow = () => {
 					tipos: await TipoModel.getTipos(),
 				});
 
-			break;
-			
+				break;
+
+			case "getCombustiveis":
+
+				win.webContents.send("fromMain", {
+					combustiveis: await CombustivelModel.getCombustiveis(),
+				});
+
+				break;
+
 			case "addMarca":
 				win.webContents.send("fromMain", {
 					command: "newMarca"
 				})
-			break;
+				break;
 
 			case "addTipo":
 				win.webContents.send("fromMain", {
 					command: "newTipo"
 				});
-			break;
+				break;
+
+			case "addCombustivel":
+				win.webContents.send("fromMain", {
+					command: "newCombustivel"
+				});
+				break;
 
 			case "getDataToEdit":
 				if (args.type == "veiculo") {
@@ -117,8 +131,16 @@ const createWindow = () => {
 						data: tipo
 					});
 				}
+				else if (args.type == "combustivel") {
+					let combustivel = await CombustivelModel.getCombustivelById(args.data);
 
-			break;
+					win.webContents.send("fromMain", {
+						command: "dataToUpdate",
+						data: combustivel
+					});
+				}
+
+				break;
 
 
 			default:

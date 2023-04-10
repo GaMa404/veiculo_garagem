@@ -4,8 +4,8 @@ $(() => {
 			window.location.reload();
 		}
 	});
-
-	$("#listar-marcas").on("click", () => {
+	
+	$("#listar-combustiveis").on("click", () => {
 	 	window.location.href = "../lista/listar.html";
 	});
 
@@ -21,21 +21,21 @@ $(() => {
 
 	let updateId;
 	if (id)
-		$("#codigo-marca").val(id);
+		$("#codigo-combustivel").val(id);
 
-	updateId = $("#codigo-marca").val();
+	updateId = $("#codigo-combustivel").val();
 
-	let editMarca = $("#codigo-marca").val() != "";
+	let editTipo = updateId != "";
 
-	console.log(editMarca);
+	console.log(editTipo);
 	console.log(updateId);
 
-	if (editMarca)
+	if (editTipo)
 	{
 		window.api.send("toMain", {
 			command: "getDataToEdit",
-			type: "marca",
-			data: $("#codigo-marca").val()
+			type: "combustivel",
+			data: updateId
 		});
 
 		$("#delete").css("display", "inline");
@@ -43,7 +43,7 @@ $(() => {
 		$("#delete").on("click", () => {
 			window.api.send("toMain", {
 				command: "delete",
-				type: "marca",
+				type: "combustivel",
 				data: updateId
 			});
 
@@ -51,7 +51,7 @@ $(() => {
 		});
 	} else {
 		window.api.send("toMain", {
-			command: "addMarca"
+			command: "addCombustivel"
 		});
 	}
 });
@@ -64,7 +64,7 @@ window.api.receive("fromMain", (args) => {
 			loadPageToUpdate(args.data, args.auxiliarData);
 		break;
 
-		case "newMarca":
+		case "newCombustivel":
 			loadPage();
 		break;
 
@@ -73,10 +73,9 @@ window.api.receive("fromMain", (args) => {
 	}
 });
 
-function loadPageToUpdate(marca) {
-	$("#codigo-marca").val(marca.id);
-	$("#txt-marca").val(marca.descricao);
-	$("#txt-fabricante").val(marca.fabricante);
+function loadPageToUpdate(combustivel) {
+	$("#codigo-combustivel").val(combustivel.id);
+	$("#txt-combustivel").val(combustivel.descricao);
 	
 	addVeiculoForm.on("submit", async () => {
 
@@ -99,25 +98,25 @@ function loadPageToUpdate(marca) {
 
 		};
 
-		let marca = {};
+		let combustivel = {};
 		formItems.forEach((formItem) => {
-			marca[formItem.column] = formItem.value;
+			combustivel[formItem.column] = formItem.value;
 		});
 
-		console.log(marca);
+		console.log(combustivel);
 
-		if ($("#codigo-marca").val())
+		if ($("#codigo-combustivel").val())
 		{
 			window.api.send("toMain", {
 				command: "update",
-				type: "marca",
-				data: marca
+				type: "combustivel",
+				data: combustivel
 			});
 		} else {
 			window.api.send("toMain", {
 				command: "insert",
-				type: "marca",
-				data: marca
+				type: "combustivel",
+				data: combustivel
 			});
 		}
 		window.location.href = "../lista/listar.html";
@@ -145,16 +144,16 @@ function loadPage() {
 
 		};
 
-		let marca = {};
+		let combustivel = {};
 
 		formItems.forEach((formItem) => {
-			marca[formItem.column] = formItem.value;
+			combustivel[formItem.column] = formItem.value;
 		});
 
 		window.api.send("toMain", {
 			command: "insert",
-			type: "marca",
-			data: marca
+			type: "combustivel",
+			data: combustivel
 		});
 
 		window.location.href = "../lista/listar.html";
