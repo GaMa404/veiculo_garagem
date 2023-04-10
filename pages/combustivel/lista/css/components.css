@@ -1,0 +1,25 @@
+button {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	width: 200px;
+	height: 50px;
+	background-color: #0ece4e;
+	box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.2);
+	border: none;
+	border-radius: 5px;
+	color: #eeeeee;
+	font-family: "Manrope", sans-serif;
+	font-size: 1.25rem;
+	transition: 0.3s;
+}
+
+button:hover {
+	background-color: #0caa41;
+	cursor: pointer;
+}
+
+button:focus {
+	outline: none;
+	background-color: #0caa41;
+	cursor: pointer;
+}

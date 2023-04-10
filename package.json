@@ -1,0 +1,32 @@
+{
+  "name": "cadastro-veiculo",
+  "productName": "cadastro de veiculos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@electron/rebuild": "github:electron/rebuild",
+    "electron": "^23.0.0",
+    "electron-builder": "^22.10.3"
+  },
+  "build": {
+    "appId": "com.smokeeaasd.formveiculo",
+    "win": {
+      "target": "portable"
+    },
+    "portable": {
+      "unicode": false,
+      "artifactName": "formveiculo.exe"
+    }
+  },
+  "dependencies": {
+    "electron-reload": "^2.0.0-alpha.1",
+    "mysql2": "^3.1.2"
+  }
+}

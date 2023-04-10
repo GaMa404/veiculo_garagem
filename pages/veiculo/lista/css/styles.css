@@ -1,0 +1,121 @@
+@import url('https://fonts.cdnfonts.com/css/product-sans');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@700&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #e4ddff;
+    color: #111;
+}
+
+.container {
+    display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.list-container {
+	border-top: 30px solid #0ece4e;
+	background-color: #fbfbfb;
+	box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.2);
+	border-radius: 5px;
+	width: 90%;
+}
+
+.list-container #title {
+	margin: 5px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.list-container #title h1 {
+	font-size: 1.75rem;
+	text-align: center;
+	font-family: "Product Sans", sans-serif;
+	color: #000;
+}
+
+.list-container #title p {
+	font-size: 1.25rem;
+	text-align: center;
+	font-family: "Manrope", sans-serif;
+	color: #000;
+}
+
+.vehicle-list {
+	margin: 20px;
+}
+
+.vehicle-list-header {
+	display: flex;
+	flex-direction: row;
+	font-family: "Manrope", sans-serif;
+}
+
+.vehicle-columns {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: #eee;
+	height: 75px;
+	border-left: 10px solid #0ece4e;
+	margin: 5px;
+	border-radius: 5px;
+}
+
+.vehicle-columns-header
+{
+	display: flex;
+	height: fit-content;
+	justify-content: space-around;
+	border-radius: 5px;
+	width: 100%;
+	display: flex;
+	background-color: #ddd;
+	font-family: "Manrope", sans-serif;
+}
+
+.vehicle-columns-header h3 {
+	margin-left: 5px;
+	width: 180px;
+}
+
+.vehicle {
+	display: flex;
+	justify-content: space-around;
+	height: 50px;
+	width: 100%;
+	display: flex;
+	background-color: #efefef;
+	font-family: "Manrope", sans-serif;
+}
+
+.vehicle h3 {
+	overflow: hidden;
+	width: 180px;
+	margin-left: 5px;
+	color: #333;
+}
+
+.pk {
+	text-indent: 5px;
+	color: #0678a1 !important;
+	cursor: pointer;
+	transition: 0.3s;
+	border-radius: 3px;
+}
+
+.pk:hover{
+	background-color: #ddd;
+}
+
+.options {
+	width: 90%;
+}
