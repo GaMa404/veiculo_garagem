@@ -11,6 +11,10 @@
 
 <body>
 	<div class="container">
+		<div class="alignleft">
+			<button id="create-backup">Criar backup</button>
+			<button id="restore-backup">Restaurar backup</button>
+		</div>
 		<div class="form-container">
 				<article id="title">
 					<h1>Sistema de Cadastro de Veículos</h1>
@@ -42,6 +46,18 @@
 
 		$("#listar-tipos").on("click", () => {
 			window.location.href = "../tipo/lista/listar.html"
+		});
+
+		$("#create-backup").on("click", () => {
+			window.api.send("toMain", {
+				command: "newBackup"
+			});
+		});
+
+		$("#restore-backup").on("click", () => {
+			window.api.send("toMain", {
+				command: "sqlToRestore",
+			});
 		});
 	</script>
 </body>

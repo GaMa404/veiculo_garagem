@@ -2,6 +2,7 @@ const mysql = require("mysql2/promise");
 
 class DatabaseHelper
 {
+	/** @type {Promise<mysql.Connection>} */
 	static conn;
 
 	static async createConnection()
